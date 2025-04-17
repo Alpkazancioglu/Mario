@@ -1,0 +1,69 @@
+[gd_scene load_steps=10 format=3 uid="uid://s2h8r4mf1hka"]
+
+[ext_resource type="Texture2D" uid="uid://4iagsj58w85o" path="res://Assets/MarioSprites.png" id="1_h37oj"]
+[ext_resource type="Script" uid="uid://cpjh7oepqkdog" path="res://Scenes/Coin/coin.gd" id="1_peex2"]
+[ext_resource type="AudioStream" uid="uid://b7mbi8xb1en1l" path="res://Assets/Sounds/smb_coin.ogg" id="3_ld3c2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_peex2"]
+atlas = ExtResource("1_h37oj")
+region = Rect2(32, 0, 8, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ld3c2"]
+atlas = ExtResource("1_h37oj")
+region = Rect2(40, 0, 8, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bbafa"]
+atlas = ExtResource("1_h37oj")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ywtkp"]
+atlas = ExtResource("1_h37oj")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tqkpo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_peex2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ld3c2")
+}],
+"loop": true,
+"name": &"bumped",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bbafa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ywtkp")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ld3c2"]
+size = Vector2(10, 14)
+
+[node name="Coin" type="Area2D"]
+z_index = -1
+collision_layer = 16
+collision_mask = 2
+script = ExtResource("1_peex2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_tqkpo")
+animation = &"idle"
+frame_progress = 0.521975
+
+[node name="sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ld3c2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_ld3c2")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

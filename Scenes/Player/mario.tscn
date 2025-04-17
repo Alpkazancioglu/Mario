@@ -1,0 +1,121 @@
+[gd_scene load_steps=17 format=3 uid="uid://d34rljfncfmeq"]
+
+[ext_resource type="Script" uid="uid://csn2h3f75rc27" path="res://Scenes/Player/mario.gd" id="1_e70ne"]
+[ext_resource type="Texture2D" uid="uid://4iagsj58w85o" path="res://Assets/MarioSprites.png" id="1_xqseg"]
+[ext_resource type="Script" uid="uid://o6m1r7frcu2u" path="res://Scenes/Player/states/idle.gd" id="3_a73tv"]
+[ext_resource type="FontFile" uid="uid://bj6dbjib3ajrv" path="res://Assets/font.ttf" id="3_r0khi"]
+[ext_resource type="Script" uid="uid://b16mbr7ej5apf" path="res://Scenes/Player/states/move.gd" id="4_2idg3"]
+[ext_resource type="Script" uid="uid://necaxfgjqcud" path="res://Scenes/Player/states/jump.gd" id="5_wniig"]
+[ext_resource type="Script" uid="uid://0wb4owm2b7gq" path="res://Scenes/Player/states/fall.gd" id="6_oo25m"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e70ne"]
+atlas = ExtResource("1_xqseg")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wniig"]
+atlas = ExtResource("1_xqseg")
+region = Rect2(32, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r0khi"]
+atlas = ExtResource("1_xqseg")
+region = Rect2(64, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a73tv"]
+atlas = ExtResource("1_xqseg")
+region = Rect2(80, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2idg3"]
+atlas = ExtResource("1_xqseg")
+region = Rect2(96, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oo25m"]
+atlas = ExtResource("1_xqseg")
+region = Rect2(112, 32, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wniig"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e70ne")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wniig")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r0khi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a73tv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2idg3")
+}],
+"loop": true,
+"name": &"move",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oo25m")
+}],
+"loop": true,
+"name": &"slide",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e70ne"]
+size = Vector2(10, 16)
+
+[sub_resource type="LabelSettings" id="LabelSettings_a73tv"]
+font = ExtResource("3_r0khi")
+
+[node name="mario" type="CharacterBody2D" groups=["mario"]]
+collision_layer = 2
+collision_mask = 13
+script = ExtResource("1_e70ne")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.875, 1)
+sprite_frames = SubResource("SpriteFrames_wniig")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="shape" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_e70ne")
+
+[node name="states" type="Node2D" parent="."]
+
+[node name="idle" type="Node2D" parent="states"]
+script = ExtResource("3_a73tv")
+
+[node name="move" type="Node2D" parent="states"]
+script = ExtResource("4_2idg3")
+
+[node name="jump" type="Node2D" parent="states"]
+script = ExtResource("5_wniig")
+
+[node name="fall" type="Node2D" parent="states"]
+script = ExtResource("6_oo25m")
+
+[node name="coyoteTimer" type="Timer" parent="states/fall"]
+wait_time = 0.05
+
+[node name="Label" type="Label" parent="."]
+offset_left = -12.0
+offset_top = -26.0
+offset_right = 14.0
+offset_bottom = -6.0
+text = "idle"
+label_settings = SubResource("LabelSettings_a73tv")
+
+[connection signal="timeout" from="states/fall/coyoteTimer" to="states/fall" method="_on_timer_timeout"]

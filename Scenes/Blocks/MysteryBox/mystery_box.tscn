@@ -1,0 +1,85 @@
+[gd_scene load_steps=11 format=3 uid="uid://b8ho7ntpl6aho"]
+
+[ext_resource type="Script" uid="uid://comracukq016t" path="res://Scenes/Blocks/MysteryBox/mystery_box.gd" id="1_o4j51"]
+[ext_resource type="Texture2D" uid="uid://4iagsj58w85o" path="res://Assets/MarioSprites.png" id="1_v0v0y"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qus36"]
+atlas = ExtResource("1_v0v0y")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uu6xv"]
+atlas = ExtResource("1_v0v0y")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vfao0"]
+atlas = ExtResource("1_v0v0y")
+region = Rect2(16, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gu03a"]
+atlas = ExtResource("1_v0v0y")
+region = Rect2(32, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cs21e"]
+atlas = ExtResource("1_v0v0y")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bel1a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qus36")
+}],
+"loop": true,
+"name": &"brick",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uu6xv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vfao0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gu03a")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cs21e")
+}],
+"loop": true,
+"name": &"empty",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v0v0y"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o4j51"]
+size = Vector2(8, 6)
+
+[node name="MysteryBox" type="StaticBody2D"]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("1_o4j51")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_bel1a")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_v0v0y")
+
+[node name="Bottom" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bottom"]
+position = Vector2(0, 9)
+shape = SubResource("RectangleShape2D_o4j51")
+
+[connection signal="body_entered" from="Bottom" to="." method="_on_bottom_body_entered"]

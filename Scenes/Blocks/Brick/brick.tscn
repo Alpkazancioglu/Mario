@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://dan81p4hdbgc2"]
+
+[ext_resource type="Script" uid="uid://7tip8rphesk3" path="res://Scenes/Blocks/Brick/brick.gd" id="1_7dxlv"]
+[ext_resource type="Texture2D" uid="uid://4iagsj58w85o" path="res://Assets/MarioSprites.png" id="1_7hj31"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gkjxi"]
+size = Vector2(16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7dxlv"]
+atlas = ExtResource("1_7hj31")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mfgme"]
+size = Vector2(8, 4)
+
+[node name="Brick" type="StaticBody2D"]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("1_7dxlv")
+
+[node name="shape" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_gkjxi")
+
+[node name="texture" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_7dxlv")
+
+[node name="bottom" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bottom"]
+position = Vector2(0, 10)
+shape = SubResource("RectangleShape2D_mfgme")
+
+[connection signal="body_entered" from="bottom" to="." method="_on_bottom_body_entered"]

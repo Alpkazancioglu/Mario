@@ -1,0 +1,249 @@
+[gd_scene load_steps=11 format=4 uid="uid://dlnaradl1x0ar"]
+
+[ext_resource type="Texture2D" uid="uid://c66esqaxixn6" path="res://Assets/level0-0.png" id="1_1ov45"]
+[ext_resource type="PackedScene" uid="uid://d34rljfncfmeq" path="res://Scenes/Player/mario.tscn" id="1_iheil"]
+[ext_resource type="Texture2D" uid="uid://4iagsj58w85o" path="res://Assets/MarioSprites.png" id="3_lscpc"]
+[ext_resource type="Script" uid="uid://c36ido3rfmxf5" path="res://Scenes/Level/camera.gd" id="4_06ioy"]
+[ext_resource type="PackedScene" uid="uid://dan81p4hdbgc2" path="res://Scenes/Blocks/Brick/brick.tscn" id="5_x701m"]
+[ext_resource type="PackedScene" uid="uid://b8ho7ntpl6aho" path="res://Scenes/Blocks/MysteryBox/mystery_box.tscn" id="6_7i4w6"]
+[ext_resource type="PackedScene" uid="uid://s2h8r4mf1hka" path="res://Scenes/Coin/coin.tscn" id="7_q8n36"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_06ioy"]
+texture = ExtResource("3_lscpc")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:0/0 = 0
+7:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:1/0 = 0
+6:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+5:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:3/0 = 0
+6:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+7:7/0 = 0
+0:8/0 = 0
+1:8/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+4:8/0 = 0
+5:8/0 = 0
+6:8/0 = 0
+7:8/0 = 0
+0:9/0 = 0
+1:9/0 = 0
+2:9/0 = 0
+3:9/0 = 0
+4:9/0 = 0
+5:9/0 = 0
+6:9/0 = 0
+0:10/0 = 0
+2:10/0 = 0
+3:10/0 = 0
+4:10/0 = 0
+5:10/0 = 0
+6:10/0 = 0
+0:11/0 = 0
+1:11/0 = 0
+2:11/0 = 0
+3:11/0 = 0
+4:11/0 = 0
+5:11/0 = 0
+6:11/0 = 0
+7:11/0 = 0
+0:12/0 = 0
+1:12/0 = 0
+5:12/0 = 0
+6:12/0 = 0
+7:12/0 = 0
+0:13/0 = 0
+1:13/0 = 0
+2:13/0 = 0
+3:13/0 = 0
+4:13/0 = 0
+5:13/0 = 0
+6:13/0 = 0
+0:14/0 = 0
+1:14/0 = 0
+2:14/0 = 0
+3:14/0 = 0
+4:14/0 = 0
+5:14/0 = 0
+6:14/0 = 0
+7:14/0 = 0
+0:15/0 = 0
+1:15/0 = 0
+2:15/0 = 0
+3:15/0 = 0
+4:15/0 = 0
+5:15/0 = 0
+6:15/0 = 0
+7:15/0 = 0
+0:16/0 = 0
+1:16/0 = 0
+2:16/0 = 0
+3:16/0 = 0
+4:16/0 = 0
+5:16/0 = 0
+6:16/0 = 0
+7:16/0 = 0
+1:17/0 = 0
+2:17/0 = 0
+3:17/0 = 0
+4:17/0 = 0
+5:17/0 = 0
+6:17/0 = 0
+7:17/0 = 0
+0:18/0 = 0
+1:18/0 = 0
+2:18/0 = 0
+3:18/0 = 0
+4:18/0 = 0
+0:19/0 = 0
+1:19/0 = 0
+2:19/0 = 0
+3:19/0 = 0
+4:19/0 = 0
+1:20/0 = 0
+2:20/0 = 0
+3:20/0 = 0
+5:20/0 = 0
+1:21/0 = 0
+2:21/0 = 0
+3:21/0 = 0
+5:21/0 = 0
+0:22/0 = 0
+1:22/0 = 0
+2:22/0 = 0
+3:22/0 = 0
+4:22/0 = 0
+5:22/0 = 0
+0:23/0 = 0
+1:23/0 = 0
+2:23/0 = 0
+3:23/0 = 0
+4:23/0 = 0
+5:23/0 = 0
+0:24/0 = 0
+1:24/0 = 0
+2:24/0 = 0
+3:24/0 = 0
+4:24/0 = 0
+5:24/0 = 0
+0:25/0 = 0
+1:25/0 = 0
+2:25/0 = 0
+3:25/0 = 0
+4:25/0 = 0
+5:25/0 = 0
+5:26/0 = 0
+5:27/0 = 0
+5:28/0 = 0
+5:29/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_x701m"]
+physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 2
+sources/0 = SubResource("TileSetAtlasSource_06ioy")
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_06ioy"]
+b = Vector2(0, 240)
+
+[node name="Level" type="Node2D"]
+
+[node name="ReferenceLevel" type="Sprite2D" parent="."]
+modulate = Color(0.281187, 0.281187, 0.281187, 1)
+z_index = -1
+position = Vector2(1688, 240)
+texture = ExtResource("1_1ov45")
+
+[node name="mario" parent="." instance=ExtResource("1_iheil")]
+position = Vector2(129, 200)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+visible = false
+z_index = -1
+tile_map_data = PackedByteArray("AAAAAA0AAAAFAAEAAAABAA0AAAAFAAEAAAAAAA4AAAAFAAEAAAABAA4AAAAFAAEAAAACAA0AAAAFAAEAAAACAA4AAAAFAAEAAAADAA0AAAAFAAEAAAADAA4AAAAFAAEAAAAEAA0AAAAFAAEAAAAEAA4AAAAFAAEAAAAFAA0AAAAFAAEAAAAFAA4AAAAFAAEAAAAGAA0AAAAFAAEAAAAGAA4AAAAFAAEAAAAHAA0AAAAFAAEAAAAHAA4AAAAFAAEAAAAIAA0AAAAFAAEAAAAIAA4AAAAFAAEAAAAJAA0AAAAFAAEAAAAJAA4AAAAFAAEAAAAKAA0AAAAFAAEAAAAKAA4AAAAFAAEAAAALAA0AAAAFAAEAAAALAA4AAAAFAAEAAAAMAA0AAAAFAAEAAAAMAA4AAAAFAAEAAAANAA0AAAAFAAEAAAANAA4AAAAFAAEAAAAOAA0AAAAFAAEAAAAOAA4AAAAFAAEAAAAPAA0AAAAFAAEAAAAPAA4AAAAFAAEAAAAQAA0AAAAFAAEAAAAQAA4AAAAFAAEAAAARAA0AAAAFAAEAAAARAA4AAAAFAAEAAAASAA0AAAAFAAEAAAASAA4AAAAFAAEAAAATAA0AAAAFAAEAAAATAA4AAAAFAAEAAAAUAA0AAAAFAAEAAAAUAA4AAAAFAAEAAAAVAA0AAAAFAAEAAAAVAA4AAAAFAAEAAAAWAA0AAAAFAAEAAAAWAA4AAAAFAAEAAAAXAA0AAAAFAAEAAAAXAA4AAAAFAAEAAAAYAA0AAAAFAAEAAAAYAA4AAAAFAAEAAAAZAA0AAAAFAAEAAAAZAA4AAAAFAAEAAAAaAA0AAAAFAAEAAAAaAA4AAAAFAAEAAAAbAA0AAAAFAAEAAAAbAA4AAAAFAAEAAAAcAA0AAAAFAAEAAAAcAA4AAAAFAAEAAAAdAA0AAAAFAAEAAAAdAA4AAAAFAAEAAAAeAA0AAAAFAAEAAAAeAA4AAAAFAAEAAAAfAA0AAAAFAAEAAAAfAA4AAAAFAAEAAAAgAA0AAAAFAAEAAAAgAA4AAAAFAAEAAAAhAA0AAAAFAAEAAAAhAA4AAAAFAAEAAAAiAA0AAAAFAAEAAAAiAA4AAAAFAAEAAAAjAA0AAAAFAAEAAAAjAA4AAAAFAAEAAAAkAA0AAAAFAAEAAAAkAA4AAAAFAAEAAAAlAA0AAAAFAAEAAAAlAA4AAAAFAAEAAAAmAA0AAAAFAAEAAAAmAA4AAAAFAAEAAAAnAA0AAAAFAAEAAAAnAA4AAAAFAAEAAAAoAA0AAAAFAAEAAAAoAA4AAAAFAAEAAAApAA0AAAAFAAEAAAApAA4AAAAFAAEAAAAqAA0AAAAFAAEAAAAqAA4AAAAFAAEAAAArAA0AAAAFAAEAAAArAA4AAAAFAAEAAAAsAA0AAAAFAAEAAAAsAA4AAAAFAAEAAAAtAA0AAAAFAAEAAAAtAA4AAAAFAAEAAAAuAA0AAAAFAAEAAAAuAA4AAAAFAAEAAAAvAA0AAAAFAAEAAAAvAA4AAAAFAAEAAAAwAA0AAAAFAAEAAAAwAA4AAAAFAAEAAAAxAA0AAAAFAAEAAAAxAA4AAAAFAAEAAAAyAA0AAAAFAAEAAAAyAA4AAAAFAAEAAAAzAA0AAAAFAAEAAAAzAA4AAAAFAAEAAAA0AA0AAAAFAAEAAAA0AA4AAAAFAAEAAAA1AA0AAAAFAAEAAAA1AA4AAAAFAAEAAAA2AA0AAAAFAAEAAAA2AA4AAAAFAAEAAAA3AA0AAAAFAAEAAAA3AA4AAAAFAAEAAAA4AA0AAAAFAAEAAAA4AA4AAAAFAAEAAAA5AA0AAAAFAAEAAAA5AA4AAAAFAAEAAAA6AA0AAAAFAAEAAAA6AA4AAAAFAAEAAAA7AA0AAAAFAAEAAAA7AA4AAAAFAAEAAAA8AA0AAAAFAAEAAAA8AA4AAAAFAAEAAAA9AA0AAAAFAAEAAAA9AA4AAAAFAAEAAAA+AA0AAAAFAAEAAAA+AA4AAAAFAAEAAAA/AA0AAAAFAAEAAAA/AA4AAAAFAAEAAABAAA0AAAAFAAEAAABAAA4AAAAFAAEAAABBAA0AAAAFAAEAAABBAA4AAAAFAAEAAABCAA0AAAAFAAEAAABCAA4AAAAFAAEAAABDAA0AAAAFAAEAAABDAA4AAAAFAAEAAABEAA0AAAAFAAEAAABEAA4AAAAFAAEAAAA=")
+tile_set = SubResource("TileSet_x701m")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+process_callback = 0
+position_smoothing_enabled = true
+position_smoothing_speed = 25.0
+script = ExtResource("4_06ioy")
+
+[node name="LeftBorder" type="StaticBody2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftBorder"]
+shape = SubResource("SegmentShape2D_06ioy")
+
+[node name="Brick" parent="." instance=ExtResource("5_x701m")]
+position = Vector2(328, 152)
+
+[node name="MysteryBox" parent="." instance=ExtResource("6_7i4w6")]
+position = Vector2(344, 152)
+itemCount = 2
+
+[node name="Coin" parent="." instance=ExtResource("7_q8n36")]
+position = Vector2(232, 199)
+type = 1
