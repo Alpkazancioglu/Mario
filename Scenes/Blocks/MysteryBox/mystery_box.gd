@@ -28,6 +28,7 @@ func createCoin() -> void:
 	coin.bumbCoin()
 	
 	
+	
 
 func _on_bottom_body_entered(body: Node2D) -> void:
 	if body is Player:
