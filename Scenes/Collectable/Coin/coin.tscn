@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://s2h8r4mf1hka"]
 
 [ext_resource type="Texture2D" uid="uid://4iagsj58w85o" path="res://Assets/MarioSprites.png" id="1_h37oj"]
-[ext_resource type="Script" uid="uid://cpjh7oepqkdog" path="res://Scenes/Coin/coin.gd" id="1_peex2"]
+[ext_resource type="Script" uid="uid://cpjh7oepqkdog" path="res://Scenes/Collectable/Coin/coin.gd" id="1_peex2"]
 [ext_resource type="AudioStream" uid="uid://b7mbi8xb1en1l" path="res://Assets/Sounds/smb_coin.ogg" id="3_ld3c2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_peex2"]
@@ -48,7 +48,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ld3c2"]
 size = Vector2(10, 14)
 
-[node name="Coin" type="Area2D"]
+[node name="Coin" type="Area2D" groups=["deleteableObjects"]]
 z_index = -1
 collision_layer = 16
 collision_mask = 2

@@ -3,16 +3,7 @@ extends State
 var isSliding: bool = false
 
 func enter()->void:
-	
-	if sign(player.velocity.x) != player.direction.x:
-		player.animation.play("slide")
-		isSliding = true
-	else:
-		isSliding = false
-		player.animation.play("move")
-	
-	
-	
+	pass
 	
 	
 func update(delta: float) -> State:
@@ -21,11 +12,12 @@ func update(delta: float) -> State:
 	
 	player.flipSprite()
 	
-
-	if isSliding:
-		if sign(player.velocity.x) == player.direction.x:
-			player.animation.play("move")
-			isSliding = false
+	if sign(player.velocity.x) != player.direction.x:
+		player.playAnim("slide")
+		isSliding = true
+	else:
+		isSliding = false
+		player.playAnim("move")
 	
 	
 	if player.velocity.y > 0 && !player.is_on_floor():

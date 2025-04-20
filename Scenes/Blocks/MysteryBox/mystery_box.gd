@@ -1,6 +1,8 @@
 extends StaticBody2D
 
-const COIN_SCENE = preload("res://Scenes/Coin/coin.tscn")
+const COIN_SCENE = preload("res://Scenes/Collectable/Coin/coin.tscn")
+const MUSHROOM_SCENE = preload("res://Scenes/Collectable/Mushroom/Mushroom.tscn")
+
 @onready var animation: AnimatedSprite2D = $AnimatedSprite2D
 
 enum _ITEM_TYPES {COIN,MUSHROOM,STAR}
@@ -28,17 +30,26 @@ func createCoin() -> void:
 	coin.bumbCoin()
 	
 	
-	
+func createMushroom() -> void:
+	var mushroom = MUSHROOM_SCENE.instantiate()
+	get_parent().add_child(mushroom)
+	mushroom.global_position = global_position
+	mushroom.bumbed()
+
 
 func _on_bottom_body_entered(body: Node2D) -> void:
 	if body is Player:
-		if itemCount != 0:
-			if itemType == _ITEM_TYPES.COIN:
-				call_deferred("createCoin")
-			
-			itemCount -= 1
-		if itemCount == 0:
-			animation.play("empty")
+		if body.currentState != body.states["fall"]:
+			if itemCount != 0:
+				if itemType == _ITEM_TYPES.COIN:
+					call_deferred("createCoin")
+				
+				elif itemType == _ITEM_TYPES.MUSHROOM:
+					call_deferred("createMushroom")
+										
+				itemCount -= 1
+			if itemCount == 0:
+				animation.play("empty")
 			
 			
 	

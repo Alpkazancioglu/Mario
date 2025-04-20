@@ -11,9 +11,9 @@ atlas = ExtResource("1_7hj31")
 region = Rect2(80, 0, 16, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mfgme"]
-size = Vector2(8, 4)
+size = Vector2(6, 5)
 
-[node name="Brick" type="StaticBody2D"]
+[node name="Brick" type="StaticBody2D" groups=["deleteableObjects"]]
 collision_layer = 8
 collision_mask = 2
 script = ExtResource("1_7dxlv")
@@ -29,7 +29,7 @@ collision_layer = 8
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bottom"]
-position = Vector2(0, 10)
+position = Vector2(0, 10.5)
 shape = SubResource("RectangleShape2D_mfgme")
 
 [connection signal="body_entered" from="bottom" to="." method="_on_bottom_body_entered"]

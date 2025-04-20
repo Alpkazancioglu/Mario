@@ -5,7 +5,7 @@ var coyoteJump: bool = false
 
 
 func enter()->void:
-	player.animation.play("jump")
+	player.playAnim("jump")
 	coyote_timer.start()
 	coyoteJump = true
 	

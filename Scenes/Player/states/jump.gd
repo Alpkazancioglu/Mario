@@ -5,7 +5,7 @@ extends State
 
 func enter()->void:
 	player.velocity.y = player.JUMP_VELOCITY
-	player.animation.play("jump")
+	player.playAnim("jump")
 	
 func update(delta: float) -> State:
 	player.applyGravity(delta)

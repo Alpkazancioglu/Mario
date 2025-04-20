@@ -4,7 +4,7 @@ extends State
 
 
 func enter()->void:
-	player.animation.play("idle")
+	player.playAnim("idle")
 	
 	
 func update(delta: float) -> State:

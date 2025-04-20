@@ -60,9 +60,9 @@ animations = [{
 size = Vector2(16, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o4j51"]
-size = Vector2(8, 6)
+size = Vector2(6, 4.5)
 
-[node name="MysteryBox" type="StaticBody2D"]
+[node name="MysteryBox" type="StaticBody2D" groups=["deleteableObjects"]]
 collision_layer = 8
 collision_mask = 2
 script = ExtResource("1_o4j51")
@@ -79,7 +79,7 @@ collision_layer = 8
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bottom"]
-position = Vector2(0, 9)
+position = Vector2(0, 10.25)
 shape = SubResource("RectangleShape2D_o4j51")
 
 [connection signal="body_entered" from="Bottom" to="." method="_on_bottom_body_entered"]
